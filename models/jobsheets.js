@@ -31,9 +31,11 @@ const JobsheetSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  data_backed_up: {
+  data_backed_up: [{
     type: String,
-  },
+    default: 'yes'
+  }],
+
   equipment: {
     type: String,
   },
@@ -46,11 +48,14 @@ const JobsheetSchema = new mongoose.Schema({
   special_notes: {
     type: String,
   },
-  service_option: {
+  service_option: [{
     type: String,
-  },
+  }],
   service_option_other: {
     type: String,
+  },
+  sales_reference:{
+    type:String
   },
   diagonosis: {
     type: String,

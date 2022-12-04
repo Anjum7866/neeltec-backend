@@ -10,13 +10,13 @@ router.post("/register",  (req, res) => {
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: process.env.EMAIL,
+                user: process.env.USER,
                 pass: process.env.PASSWORD
             }
         });
 
         const mailOptions = {
-            from: process.env.EMAIL,
+            from: process.env.USER,
             to: email,
             subject: "Jobsheet successfully filled",
             html: '<h1>Congratulation</h1> <h1> You successfully fill the jobsheet </h2>'
