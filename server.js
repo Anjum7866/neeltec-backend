@@ -15,10 +15,22 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use(cors({
-  origin:"http://localhost:3000",
-  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}));
+
+const corsOpts = {
+  origin: '*',
+  methods: [
+    'GET',
+    'POST',
+    'DELETE',
+    'UPDATE',
+    'PUT',
+    'PATCH'
+  ],
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+app.use(cors(corsOpts));
 
 // DB Config
 const db = require("./config/keys").mongoURI;

@@ -19,6 +19,13 @@ exports.createOneJobsheet = (req, res) => {
     });
 };
 
+exports.findOneJobsheet = (req, res) => {
+  Jobsheet.findById(req.params.id)
+    .then(jobsheet => res.json(jobsheet))
+    .catch(err => res.status(404).json({ nojobsheetfound: 'No jobsheet found' }));
+};
+
+
 exports.listAllJobsheet = (req, res) => {
   Jobsheet.find()
     .then((jobsheet) => {
