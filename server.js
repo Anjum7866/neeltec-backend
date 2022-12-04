@@ -5,8 +5,11 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const clients = require("./routes/api/clients");
 const jobsheet = require("./routes/api/jobsheet");
+const email = require("./routes/api/email");
 const app = express();
 const cors = require("cors");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 // Bodyparser middleware
 app.use(
@@ -50,6 +53,7 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/clients", clients);
 app.use("/api/jobsheet", jobsheet);
+app.use("/api/email", email);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
